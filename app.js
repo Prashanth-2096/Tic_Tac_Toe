@@ -19,6 +19,7 @@ const winPatterns =[
 
 const resetGame = () =>{
     turnO = true;
+    MakeSound("reset")
     enableBoxes();
     msgContainer.classList.add("hide")
     count=0
@@ -26,6 +27,7 @@ const resetGame = () =>{
 
 boxes.forEach((box) =>{
 box.addEventListener("click",() =>{
+    MakeSound("click")
     count=count+1;
     if (turnO){
         box.innerText="O";
@@ -60,6 +62,7 @@ const showWinner = (winner) => {
 };
 
 const Drawmatch = () => {
+    MakeSound("draw")
     msg.innerText = "Match was draw";
     msgContainer.classList.remove("hide");
     disableBoxes();
@@ -73,7 +76,8 @@ const checkWinner = () =>{
         
         if(pos1Val !="" && pos2Val != "" && pos3Val){
             if (pos1Val===pos2Val && pos2Val===pos3Val){
-                showWinner(pos1Val);
+                showWinner(pos1Val)
+                MakeSound("winning");
                 return true
             }
         }
@@ -83,6 +87,28 @@ const checkWinner = () =>{
     }
     
 };
+
+function MakeSound(key){
+    switch (key){
+        case "draw":
+            var draw = new Audio('./assets/tie_sound.mp3')
+            draw.play();
+            break;
+        case "click":
+            var click = new Audio('./assets/click.mp3')
+            click.play();
+            break;
+        case "winning":
+            var winning = new Audio('./assets/winning.mp3')
+            winning.play();
+            break;
+        case "reset":
+            var reset = new Audio('./assets/reset.mp3')
+            reset.play();
+            break;
+        default: console.log("cool")
+    }
+}
 
 newGameBtn.addEventListener("click", resetGame);
 resetBtn.addEventListener("click", resetGame);
