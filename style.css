@@ -147,10 +147,11 @@
 
   .name {
     display: grid;
-    grid-template-columns: auto auto;
-    gap: 10px;
+    grid-template-columns: 1fr 1fr;
+    text-align: center;
     font-size: 2rem;
     color: #ffffc7;
+    margin: 20px ;
   }
 
 .name1{
@@ -162,3 +163,66 @@
     text-align: right;
     margin-right: 200px;
   }
+
+ /* Media Queries for Responsive Design */
+
+@media (max-width: 768px) {
+    .game {
+        width: 90vw;
+        height: 90vw;
+    }
+
+    .box {
+        height: 25vw;
+        width: 25vw;
+        font-size: 6vw;
+    }
+
+    #reset-btn,
+    #new-btn {
+        font-size: 1rem;
+        padding: 0.8rem;
+    }
+
+    #msg {
+        font-size: 4vw;
+    }
+
+    .name {
+        grid-template-columns:1fr 1fr;
+        text-align: center;
+    }
+
+    .name1,
+    .name2 {
+        margin: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .game {
+        width: 95vw;
+        height: 95vw;
+    }
+
+    .box {
+        height: 28vw;
+        width: 28vw;
+        font-size: 5.5vw;
+    }
+
+    #reset-btn,
+    #new-btn {
+        font-size: 0.9rem;
+        padding: 0.6rem;
+    }
+
+    .Entry {
+        max-width: 90%;
+        padding: 1rem;
+    }
+
+    #startgame {
+        font-size: 1rem;
+    }
+}
