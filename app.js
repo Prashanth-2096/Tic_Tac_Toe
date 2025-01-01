@@ -1,10 +1,22 @@
 let boxes = document.querySelectorAll(".box");
 let resetBtn = document.querySelector("#reset-btn");
 let newGameBtn = document.querySelector("#new-btn");
+let startBtn = document.querySelector("#startgame");
+let Entry = document.querySelector(".Entry");
+let gameContainer = document.querySelector(".game-container")
 let msgContainer = document.querySelector(".msg-container");
 let msg = document.querySelector("#msg");
-let count=0
+let player1 = document.querySelector("#player1");
+let player2 = document.getElementById("player2");
+let invalidname1 = document.querySelector(".invalidname1");
+let invalidname2 = document.querySelector(".invalidname2");
+let drawmsg = document.querySelector(".draw-msg");
+let replay = document.querySelector(".replay");
+let name1 = document.querySelector(".name1");
+let name2 = document.querySelector(".name2")
+let count =0;
 let turnO = true; //playerX, playerY
+
 
 const winPatterns =[
     [0,1,2],
@@ -21,8 +33,15 @@ const resetGame = () =>{
     turnO = true;
     MakeSound("reset")
     enableBoxes();
-    msgContainer.classList.add("hide")
+    msgContainer.classList.add("hide");
+    Entry.classList.remove("hide");
+    gameContainer.classList.add("hide");
+    drawmsg.classList.add("hide");
+    invalidname1.classList.add("hide");
+    invalidname2.classList.add("hide")
     count=0
+    player1.value="";
+    player2.value="";
 }
 
 boxes.forEach((box) =>{
@@ -56,15 +75,15 @@ const enableBoxes=()=>{
     }
 }
 const showWinner = (winner) => {
-    msg.innerText = `Congratulations, Winner is ${winner}`;
+    msg.innerText = `Congratulations ${winner} You won :)`;
     msgContainer.classList.remove("hide");
     disableBoxes();
 };
 
 const Drawmatch = () => {
     MakeSound("draw")
-    msg.innerText = "Match was draw";
-    msgContainer.classList.remove("hide");
+    gameContainer.classList.add("hide")
+    drawmsg.classList.remove("hide")
     disableBoxes();
 };
 
@@ -76,7 +95,12 @@ const checkWinner = () =>{
         
         if(pos1Val !="" && pos2Val != "" && pos3Val){
             if (pos1Val===pos2Val && pos2Val===pos3Val){
-                showWinner(pos1Val)
+                if (pos1Val =="o"){
+                    showWinner(player1.value)
+                }else{
+                    showWinner(player2.value)
+                }
+                
                 MakeSound("winning");
                 return true
             }
@@ -110,5 +134,23 @@ function MakeSound(key){
     }
 }
 
+const startGame = () =>{
+    if (player1.value=="" || player2.value==""){
+        invalidname2.classList.remove("hide")
+        invalidname1.classList.add("hide")
+    }
+    else if (player1.value==player2.value){
+        invalidname1.classList.remove("hide")
+        invalidname2.classList.add("hide")
+    }else{
+        Entry.classList.add("hide");
+        name1.innerText=`Player 1: ${player1.value}`
+        name2.innerText=`Player 2: ${player2.value}`
+        gameContainer.classList.remove("hide");
+    }
+}
+
 newGameBtn.addEventListener("click", resetGame);
 resetBtn.addEventListener("click", resetGame);
+startBtn.addEventListener("click",startGame)  //start the game
+replay.addEventListener("click",resetGame)

@@ -11,23 +11,60 @@
         <p id="msg">Winner</p>
         <button id="new-btn">New Game</button>
     </div>
+    <div class="draw-msg hide">
+        <p id="msg">Oops it's a draw!</p>
+        <button id="new-btn" class="replay">Play again</button>
+    </div>
     <main>
-        <h1>Tic Tac Toe</h1>
-        <div class="container">
-            <div class="game">
-                <button class="box"></button>
-                <button class="box"></button>
-                <button class="box"></button>
-                <button class="box"></button>
-                <button class="box"></button>
-                <button class="box"></button>
-                <button class="box"></button>
-                <button class="box"></button>
-                <button class="box"></button>
+        <div class="game-container hide">
+            <h1>Tic Tac Toe</h1>
+            <div class="name">
+                <div class="name1">Player 1</div>
+                <div class="name2">Player 2</div>
+             </div>
+            <div class="container">
+                <div class="game">
+                    <button class="box"></button>
+                    <button class="box"></button>
+                    <button class="box"></button>
+                    <button class="box"></button>
+                    <button class="box"></button>
+                    <button class="box"></button>
+                    <button class="box"></button>
+                    <button class="box"></button>
+                    <button class="box"></button>
+                </div>
             </div>
+            <button id="reset-btn">Reset Game</button>
         </div>
-        <button id="reset-btn">Reset Game</button>
     </main>
+        <div class="Entry-box">
+            <div class="Entry">
+                        <h2 class="Entryheadline">
+                        Tic-Tac-Toe Game Setup
+                        </h2>
+                        <div class="line">
+                            <label class="selectType">Are you guys Ready!</label>
+                        </div>
+                        <div class="line">
+                            <label>Player 1 Name:</label>
+                            <input type="text" id="player1" placeholder="Enter Player 1 Name">
+                        </div>
+                        <div class="line">
+                            <label for="player2" id="player2_name">Player 2 Name:</label>
+                            <input type="text" id="player2" placeholder="Enter Player 2 Name">
+                        </div>
+                        <div class="invalidname1 hide">
+                            <p>Both names can't be same!</p>
+                        </div>
+                        <div class="invalidname2 hide">
+                            <p>Enter both the names!</p>
+                        </div>
+                        <div class="line">
+                            <button id="startgame" class="line">Start Game</button>
+                        </div>
+            </div>    
+        </div>
     <script src="app.js"></script>
 </body>
 </html>

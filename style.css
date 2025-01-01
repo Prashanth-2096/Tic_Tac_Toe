@@ -1,11 +1,12 @@
-*{
+/* *{
     margin: 0;
     padding: 0;
-}
+} */
 
  body{
     background-color: #548687;
     text-align: center;
+    align-items: center;
 
 }
 
@@ -34,6 +35,7 @@
     font-size: 8vmin;
     color: #b0413b;
     background-color:#ffffc7 ;
+    cursor: pointer;
 }
 
 #reset-btn{
@@ -43,6 +45,7 @@
     color: #fff;
     border-radius: 1rem;
     border: none;
+    cursor: pointer;
 }
 
 #new-btn {
@@ -52,6 +55,7 @@
     color: #fff;
     border-radius: 1rem;
     border: none;
+    cursor: pointer;
 }
 
 #msg{
@@ -72,3 +76,89 @@
     
     display: none;
 }
+
+.Entry h2{
+    margin-bottom: 1rem;
+}
+
+.line{
+    flex: 1;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    position: relative;
+}
+
+.line input,option,label,select{
+    font-size: 1.25rem;
+    border-radius: 2px;
+    height: 2rem;
+    margin-bottom: 1rem;
+}
+
+.line input::placeholder {
+    font-style: italic;
+    opacity: 0.5;
+}
+
+
+#startgame{
+    padding:0.45rem;
+    font-size: 1.25rem;
+    background-color: #3b82f6;
+    color: #fff;
+    border-radius: 0.3rem;
+    border: none;
+    margin-top: 0.8rem;
+    margin-bottom: .1rem;
+    cursor: pointer;
+}
+
+#startgame:hover{
+    background-color: #1D4ED8;
+}
+
+.Entry-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+  }
+  
+  .Entry{
+    flex: 1;
+    max-width: 500px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 4px;
+    text-align: center;
+    border-radius: 0.5rem;
+  }
+
+  .invalidname1{
+    color: red;
+    font-size: 1.5rem;
+  }
+
+  .invalidname2{
+    color: red;
+    font-size: 1.5rem;
+  }
+
+  .name {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 10px;
+    font-size: 2rem;
+    color: #ffffc7;
+  }
+
+.name1{
+    text-align: left;
+    margin-left: 200px;
+}
+
+  .name2{
+    text-align: right;
+    margin-right: 200px;
+  }
